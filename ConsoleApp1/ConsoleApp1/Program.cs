@@ -13,6 +13,8 @@ namespace ConsoleApp1
         {
             var tp = new TextProcessing();
             tp.Run();
+            Blue b1 = new Blue();
+            b1.SayFavoriteFood(Red.Favoritefood);
         }
     }
 
@@ -37,6 +39,24 @@ namespace ConsoleApp1
             Console.ReadLine();
         }
        
+    }
+    class PlayingWithstacks
+    {
+
+    }
+    class Workbench
+    {
+
+    }
+    class Red{
+        public static string Favoritefood = "carrots";
+
+    }
+    class Blue{
+        public void SayFavoriteFood(string FavFood)
+        {
+            Console.WriteLine(Red.Favoritefood);
+        }
     }
 
 }
