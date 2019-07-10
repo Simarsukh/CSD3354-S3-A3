@@ -13,16 +13,16 @@ namespace ConsoleApp1
         {
             var tp = new TextProcessing();
             tp.Run();
-            Blue b1 = new Blue();
-            b1.SayFavoriteFood(Red.Favoritefood);
         }
     }
 
     class TextProcessing
     {
+        Queue<string> names = new Queue<string>();
         public void Run()
         {
-            // Open the names file and access the data
+
+          
             using (StreamReader file = new StreamReader("U:/Users/739292/Assignment_3/ConsoleApp1/TextFile1.txt"))
             {
                 int counter = 0;
@@ -30,33 +30,44 @@ namespace ConsoleApp1
 
                 while ((ln = file.ReadLine()) != null)
                 {
-                    Console.WriteLine(ln);
+                    names.Enqueue(ln);
                     counter++;
                 }
                 file.Close();
                 Console.WriteLine($"File has {counter} lines.");
+               
+                PlayingWithStacks.Run(names);
             }
-            Console.ReadLine();
         }
-       
     }
-    class PlayingWithstacks
+
+    class PlayingWithStacks
     {
-
+        public static void Run(Queue<string> tangerine)
+        {
+            Stack<string> names = new Stack<string>();
+           
+            foreach (var item in tangerine)
+            {
+                names.Push(tangerine.Dequeue());
+            }
+        }
     }
-    class Workbench
+
+    class Workbench { }
+
+    class Red
     {
-
+        public static string FavoriteFood = "Carrots";
     }
-    class Red{
-        public static string Favoritefood = "carrots";
 
-    }
-    class Blue{
+    class Blue
+    {
         public void SayFavoriteFood(string FavFood)
         {
-            Console.WriteLine(Red.Favoritefood);
+            Console.WriteLine(Red.FavoriteFood);
         }
     }
+    Console.ReadLine();
 
 }
