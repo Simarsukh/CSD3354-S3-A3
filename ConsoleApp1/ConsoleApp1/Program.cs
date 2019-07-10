@@ -21,7 +21,7 @@ namespace ConsoleApp1
         public void Run()
         {
             // Open the names file and access the data
-            using (StreamReader file = new StreamReader("U:/Users/739292/Assignment_3/ConsoleApp1.txt"))
+            using (StreamReader file = new StreamReader("U:/Users/739292/Assignment_3/ConsoleApp1/TextFile1.txt"))
             {
                 int counter = 0;
                 string ln;
@@ -34,7 +34,9 @@ namespace ConsoleApp1
                 file.Close();
                 Console.WriteLine($"File has {counter} lines.");
             }
+            Console.ReadLine();
         }
+       
     }
 
 }
